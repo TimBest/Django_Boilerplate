@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2161A8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    {% block meta %}{% endblock %}
+    <title>{% block title %}Landing Page{% endblock %} | MySite</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ static('img/favicon.png') }}">
+    {% if is_development %}
+      {#{% stylesheet 'less' %}#}
+    {% else %}
+      <link rel="stylesheet" href="{{ static('css/style.min.css') }}" >
+    {% endif %}
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+        <div class="row no-gutter">
+          <div class="col-sm-2 col-xs-12 left">
+            <div class="navbar-header">
+              <a class="navbar-brand image-frame" href="{{ url('home') }}">
+								<h1>MySite</h1>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-6 center">
+          </div>
+          <div class="col-xs-6 right text-right">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block overwriteHeader %}
+      <div class="header">
+        <div class="container-fluid">
+          {% block header %}{% endblock %}
+        </div>
+      </div>
+    {% endblock %}
+    {% block navigation %}{% endblock %}
+    {% block overwriteContent %}
+      <div class="content">
+        <div class="container-fluid">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    {% endblock %}
+
+    <div id="footer" class="text-center">
+
+    </div>
+    {#{% javascript 'scripts' %}#}
+  </body>
+</html>

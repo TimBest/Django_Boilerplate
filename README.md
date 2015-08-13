@@ -1,5 +1,5 @@
 # Django_Boilerplate
-A Django Boiler plate with my preferred modules and project setup
+A Django Boiler plate with my preferred modules and project setup for development in Ubuntu.
 
 ## Installation
 
@@ -11,4 +11,6 @@ or
 Setup:
  - change mysite/ and mysite/mysite/ to the name of your project
  - in .gitignore change every occurrence of mysite in the line "\*mysite/mysite/media/" to the name of your project
- - run "pip install requirements.txt" 
+ - run "pip install requirements.txt"
+ - add "export DEVELOPMENT=True" to ~/.profile
+ - set up a Postgres database (https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-centos-7)
