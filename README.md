@@ -10,7 +10,7 @@ or
 
 Setup:
  - Change every occirance of mysite to the name of your project
- - Run "pip install requirements.txt"
+ - Run "pip install -r requirements.txt"
  - Add DEVELOPMENT=True to your environmental variables. For linux add "export DEVELOPMENT=True" to ~/.profile
  - set up a Postgres database (https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-centos-7)
  - add your domain name to the sites model
