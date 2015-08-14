@@ -24,7 +24,7 @@ def field_attrs(field_inst, **kwargs):
 def environment(**options):
     environment = Environment (
         extensions = [
-            'pipeline.jinja2.ext.PipelineExtension',
+            'pipeline_jinja2.jinja2.ext.PipelineExtension',
             'jinja2.ext.autoescape',
             'jinja2.ext.with_',
         ],

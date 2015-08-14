@@ -1,0 +1,12 @@
+// style Reset: normalized style across browsers
+@import 'normalize.scss';
+
+// Foundation
+@import 'foundation/settings';
+@import 'foundation/overwrites/tabs';
+@import 'foundation.scss';
+// Foundation Plugins
+@import 'foundation-icons.scss';
+
+
+// My sites style

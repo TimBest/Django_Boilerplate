@@ -41,10 +41,11 @@ INSTALLED_APPS = (
     #'autocomplete_light',
     'easy_timezones',
     'jinja2',
+    'pipeline',
     'robots',
     #'test_without_migrations',
 
-    'pipeline',
+    'pipeline_jinja2',
     'utils',
 )
 
@@ -59,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'easy_timezones.middleware.EasyTimezoneMiddleware',
-    'pipeline.middleware.MinifyHTMLMiddleware',
+    'pipeline_jinja2.middleware.MinifyHTMLMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -88,15 +89,15 @@ if DEVELOPMENT:
     STATIC_URL = '/static/'
     STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
     MEDIA_URL = '/media/'
-    PIPELINE_COMPILERS = 'pipeline.compilers.less.LessCompiler',
+    PIPELINE_COMPILERS = 'pipeline.compilers.sass.SASSCompiler',
     PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
     PIPELINE_CSS = {
-        'less': {
+        'sass': {
             'source_filenames': (
-              'less/theme.less',
+              'stylesheets/theme.scss',
             ),
-            'output_filename': 'css/style.min.css',
+            'output_filename': 'stylesheets/style.min.css',
             'extra_context': {
                 'media': 'screen',
             },
@@ -200,12 +201,15 @@ ABSOLUTE_URL_OVERRIDES = {
 PIPELINE_ENABLED= True
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 
+
 PIPELINE_JS = {
     'scripts': {
         'source_filenames': (
-            'js/includes/jquery-1.11.0.min.js',
+            'scripts/jquery-1.11.0.min.js',
+            'scripts/fastclick.js',
+            'scripts/foundation.min.js',
         ),
-        'output_filename': 'js/scripts.min.js',
+        'output_filename': 'scripts/scripts.min.js',
         'extra_context': {
             'async': True,
         },
